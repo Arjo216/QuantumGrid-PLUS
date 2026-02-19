@@ -1,0 +1,23 @@
+syntax = "proto3";
+package sentinel;
+
+// The Service: "Hey AI, check this transaction."
+service AiSentinel {
+  rpc AnalyzeTransaction (TransactionRequest) returns (RiskAssessment);
+}
+
+// The Input: A raw transaction from the Mempool
+message TransactionRequest {
+  string tx_hash = 1;
+  string sender_pqc_key = 2; // Dilithium Public Key (Massive payload)
+  double amount = 3;
+  int64 timestamp = 4;
+  bytes signature = 5;       // The Post-Quantum Signature
+}
+
+// The Output: The AI's Verdict
+message RiskAssessment {
+  bool is_safe = 1;
+  float risk_score = 2; // 0.0 (Safe) to 1.0 (Critical)
+  string reason = 3;    // e.g., "MEV_SANDWICH_DETECTED"
+}

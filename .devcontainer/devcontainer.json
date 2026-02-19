@@ -1,0 +1,20 @@
+{
+  "name": "QuantumGrid PLUS Env",
+  "image": "mcr.microsoft.com/devcontainers/rust:1",
+  "features": {
+    "ghcr.io/devcontainers/features/python:1": {
+      "version": "3.11"
+    }
+  },
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y protobuf-compiler && python3 -m pip install grpcio grpcio-tools torch numpy --break-system-packages",
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "rust-lang.rust-analyzer",
+        "ms-python.python",
+        "tamasfe.even-better-toml",
+        "zxh404.vscode-proto3"
+      ]
+    }
+  }
+}
