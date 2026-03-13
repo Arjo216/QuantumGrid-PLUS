@@ -40,16 +40,72 @@ A real-time, interactive frontend that visually breaks down the gRPC telemetry, 
 ## 🛠️ System Flow Diagram
 
 ```mermaid
-graph TD
-    A[Streamlit UI] -->|Initiate Batch| B(Rust Core Ledger)
-    B -->|1. Request Entropy| C[Quantum Oracle API]
-    C -->|2. Superposition Bits| B
-    B -->|3. Generate Dilithium3 Keys| B
-    B -->|4. Merkle Tree Aggregation| B
-    B -->|5. Stream State via gRPC| D{PyTorch AI Sentinel}
-    D -->|6. Calculate MSE Loss| E[Verdict: Approve/Block]
-    E -->|7. Return Payload| B
-    B -->|8. Render Telemetry| A
+flowchart TD
+    %% ==========================================
+    %% CUSTOM CSS & DEEPTECH COLOR PALETTE
+    %% ==========================================
+    classDef webUI fill:#0E1117,stroke:#58A6FF,stroke-width:2px,color:#C9D1D9,rx:10px,ry:10px;
+    classDef rustCore fill:#B7410E,stroke:#FFA500,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px;
+    classDef quantumAPI fill:#6929C4,stroke:#A56EFF,stroke-width:2px,color:#FFFFFF,rx:8px,ry:8px;
+    classDef pythonAI fill:#306998,stroke:#FFD43B,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px;
+    classDef torchModel fill:#EE4C2C,stroke:#FF9885,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px;
+    classDef decisionPass fill:#238636,stroke:#3FB950,stroke-width:3px,color:#FFFFFF;
+    classDef decisionBlock fill:#DA3633,stroke:#FF7B72,stroke-width:3px,color:#FFFFFF;
+    classDef logicNode fill:#1F2328,stroke:#8B949E,stroke-width:2px,color:#E6EDF3,rx:20px,ry:20px;
+
+    %% ==========================================
+    %% ARCHITECTURAL SUBGRAPHS
+    %% ==========================================
+    
+    subgraph Frontend ["🖥️ MISSION CONTROL (Port 8501)"]
+        UI["Streamlit Interactive Telemetry<br/>Dashboard & RegEx Parser"]:::webUI
+    end
+
+    subgraph QPU_Layer ["🌌 QUANTUM ORACLE (Port 5000)"]
+        Flask["Python/Flask API Server"]:::pythonAI
+        IBM[("IBM Qiskit QPU<br/>(Superposition Collapse)")]:::quantumAPI
+        Flask <-->|Measures Physical Qubits| IBM
+    end
+
+    subgraph Rust_Ledger ["⚙️ LAYER 1: RUST CORE (FIPS 204)"]
+        RustInit["Tokio Async Runtime<br/>(Transaction Batcher)"]:::rustCore
+        PQC["Dilithium3 Keygen<br/>(XOR-Hashed Seed)"]:::rustCore
+        Merkle["Merkle Tree Aggregator<br/>(99.8% Data Compression)"]:::rustCore
+        
+        RustInit --> PQC
+        PQC --> Merkle
+    end
+
+    subgraph PyTorch_Brain ["🧠 AI SENTINEL (Port 50051)"]
+        GRPC["gRPC / Protobuf Receiver"]:::pythonAI
+        Autoencoder["Unsupervised PyTorch Autoencoder<br/>(Normalized Inference)"]:::torchModel
+        MSE{"Calculate MSE<br/>Reconstruction Loss"}:::logicNode
+        
+        GRPC --> Autoencoder
+        Autoencoder --> MSE
+    end
+
+    %% ==========================================
+    %% DATA FLOW & NETWORK ROUTING
+    %% ==========================================
+
+    UI == "1. Initiate Execution" ==> RustInit
+    RustInit == "2. HTTP GET /entropy" ==> Flask
+    Flask -. "3. Returns Raw Entropy" .-> PQC
+    
+    Merkle == "4. High-Speed Protobuf Payload" ==> GRPC
+    
+    MSE -- "Loss < 0.05" --> Pass["✅ APPROVED<br/>(Safe Distribution)"]:::decisionPass
+    MSE -- "Loss > 0.05" --> Block["🚨 BLOCKED<br/>(MEV Anomaly)"]:::decisionBlock
+    
+    Pass == "5. Return Verdict" ==> UI
+    Block == "5. Return Verdict" ==> UI
+
+    %% Link Styling (Neon effects for data streams)
+    linkStyle 0,1,3,6,7 stroke:#58A6FF,stroke-width:2px,color:#C9D1D9;
+    linkStyle 2 stroke:#A56EFF,stroke-width:2px,stroke-dasharray: 5 5;
+    linkStyle 4 stroke:#3FB950,stroke-width:3px;
+    linkStyle 5 stroke:#FF7B72,stroke-width:3px;
 ```
 
 ### ⚙️ Quick Start Guide (GitHub Codespaces)
