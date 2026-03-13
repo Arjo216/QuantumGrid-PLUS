@@ -1,3 +1,5 @@
+<div align="center">
+
 # 🌌 QuantumGrid PLUS
 **The AI-Governed, Quantum-Sovereign Immutable Ledger**
 
@@ -10,6 +12,8 @@
 QuantumGrid PLUS is a flagship DeepTech infrastructure prototype designed to address the "Four Horsemen" of next-generation computer science: **Post-Quantum Cryptography (PQC), Quantum Computing, Blockchain, and Machine Learning.**
 
 It acts as a next-generation Layer-1 node architecture that replaces legacy elliptic curve cryptography with quantum-resistant identities, eliminates PQC data bloat via Merkle Tree aggregation, and utilizes an unsupervised Deep Learning Autoencoder to detect zero-day MEV (Maximal Extractable Value) exploits in the mempool before consensus.
+
+</div>
 
 ---
 
@@ -90,4 +94,13 @@ streamlit run app.py
 
 * **High-Speed IPC:** Replaced standard REST JSON APIs with Google's Protocol Buffers (Protobuf) over HTTP/2, ensuring the AI inference step does not bottleneck the blockchain's TPS (Transactions Per Second).
 
-* **Architected and Engineered for the Post-Quantum Era.**
+* **Engineered for maximum security and autonomy.**
+
+### 📜 License
+Distributed under the **MIT License**. See LICENSE for more information.
+
+<div align="center">
+
+
+<b>Architected and Engineered for the Post-Quantum Era.</b>
+</div>
