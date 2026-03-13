@@ -46,7 +46,9 @@ graph TD
     D -->|6. Calculate MSE Loss| E[Verdict: Approve/Block]
     E -->|7. Return Payload| B
     B -->|8. Render Telemetry| A
-⚙️ Quick Start Guide (GitHub Codespaces)
+```
+
+### ⚙️ Quick Start Guide (GitHub Codespaces)
 This project is fully dockerized and optimized for a cloud-native DevContainer environment.
 
 1. Boot the Quantum Oracle (Terminal 1)
