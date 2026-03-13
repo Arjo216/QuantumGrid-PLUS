@@ -76,18 +76,18 @@ streamlit run app.py
 
 
 ### 📊 Security & SWOT Highlights
-** NIST-Aligned Sovereignty: Utilizes FIPS 204 (Dilithium3) standards, effectively mitigating "Harvest Now, Decrypt Later" attacks by Shor's Algorithm.
+* **NIST-Aligned Sovereignty:** Utilizes FIPS 204 (Dilithium3) standards, effectively mitigating "Harvest Now, Decrypt Later" attacks by Shor's Algorithm.
 
-* Hybrid Entropy Resiliency: Does not rely solely on the Quantum QPU. It XOR-hashes Quantum bits with Classical OS bits, preventing single-point-of-failure API dependency.
+* **Hybrid Entropy Resiliency:** Does not rely solely on the Quantum QPU. It XOR-hashes Quantum bits with Classical OS bits, preventing single-point-of-failure API dependency.
 
-* Fault-Tolerant AI Governance: The AI runs out-of-band via gRPC. If the AI service crashes, the Rust blockchain core remains online and defaults to strict security parameters.
+* **Fault-Tolerant AI Governance:** The AI runs out-of-band via gRPC. If the AI service crashes, the Rust blockchain core remains online and defaults to strict security parameters.
 
 
 ### 📊 DeepTech Innovations & Metrics
-* PQC Data Optimization: Successfully reduced 13,000+ byte transaction batches to a 32-byte verifiable state identifier (Merkle Root).
+* **PQC Data Optimization:** Successfully reduced 13,000+ byte transaction batches to a 32-byte verifiable state identifier (Merkle Root).
 
-Deterministic ML Bypassed: Shifted from static rules to dynamic statistical reconstruction, allowing the node to detect unknown (zero-day) economic attacks based purely on mathematical deviation.
+* **Deterministic ML Bypassed:** Shifted from static rules to dynamic statistical reconstruction, allowing the node to detect unknown (zero-day) economic attacks based purely on mathematical deviation.
 
-High-Speed IPC: Replaced standard REST JSON APIs with Google's Protocol Buffers (Protobuf) over HTTP/2, ensuring the AI inference step does not bottleneck the blockchain's TPS (Transactions Per Second).
+* **High-Speed IPC:** Replaced standard REST JSON APIs with Google's Protocol Buffers (Protobuf) over HTTP/2, ensuring the AI inference step does not bottleneck the blockchain's TPS (Transactions Per Second).
 
-Architected and Engineered for the Post-Quantum Era.
+                                                  **Architected and Engineered for the Post-Quantum Era.**
