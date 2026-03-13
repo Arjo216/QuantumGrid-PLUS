@@ -44,14 +44,14 @@ flowchart TD
     %% ==========================================
     %% CUSTOM CSS & DEEPTECH COLOR PALETTE
     %% ==========================================
-    classDef webUI fill:#0E1117,stroke:#58A6FF,stroke-width:2px,color:#C9D1D9,rx:10px,ry:10px;
-    classDef rustCore fill:#B7410E,stroke:#FFA500,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px;
-    classDef quantumAPI fill:#6929C4,stroke:#A56EFF,stroke-width:2px,color:#FFFFFF,rx:8px,ry:8px;
-    classDef pythonAI fill:#306998,stroke:#FFD43B,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px;
-    classDef torchModel fill:#EE4C2C,stroke:#FF9885,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px;
-    classDef decisionPass fill:#238636,stroke:#3FB950,stroke-width:3px,color:#FFFFFF;
-    classDef decisionBlock fill:#DA3633,stroke:#FF7B72,stroke-width:3px,color:#FFFFFF;
-    classDef logicNode fill:#1F2328,stroke:#8B949E,stroke-width:2px,color:#E6EDF3,rx:20px,ry:20px;
+    classDef webUI fill:#0E1117,stroke:#58A6FF,stroke-width:2px,color:#C9D1D9,rx:10px,ry:10px
+    classDef rustCore fill:#B7410E,stroke:#FFA500,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px
+    classDef quantumAPI fill:#6929C4,stroke:#A56EFF,stroke-width:2px,color:#FFFFFF,rx:8px,ry:8px
+    classDef pythonAI fill:#306998,stroke:#FFD43B,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px
+    classDef torchModel fill:#EE4C2C,stroke:#FF9885,stroke-width:2px,color:#FFFFFF,rx:5px,ry:5px
+    classDef decisionPass fill:#238636,stroke:#3FB950,stroke-width:3px,color:#FFFFFF
+    classDef decisionBlock fill:#DA3633,stroke:#FF7B72,stroke-width:3px,color:#FFFFFF
+    classDef logicNode fill:#1F2328,stroke:#8B949E,stroke-width:2px,color:#E6EDF3,rx:20px,ry:20px
 
     %% ==========================================
     %% ARCHITECTURAL SUBGRAPHS
@@ -89,23 +89,17 @@ flowchart TD
     %% DATA FLOW & NETWORK ROUTING
     %% ==========================================
 
-    UI == "1. Initiate Execution" ==> RustInit
-    RustInit == "2. HTTP GET /entropy" ==> Flask
+    UI -- "1. Initiate Execution" --> RustInit
+    RustInit -- "2. HTTP GET /entropy" --> Flask
     Flask -. "3. Returns Raw Entropy" .-> PQC
     
-    Merkle == "4. High-Speed Protobuf Payload" ==> GRPC
+    Merkle -- "4. High-Speed Protobuf Payload" --> GRPC
     
     MSE -- "Loss < 0.05" --> Pass["✅ APPROVED<br/>(Safe Distribution)"]:::decisionPass
     MSE -- "Loss > 0.05" --> Block["🚨 BLOCKED<br/>(MEV Anomaly)"]:::decisionBlock
     
-    Pass == "5. Return Verdict" ==> UI
-    Block == "5. Return Verdict" ==> UI
-
-    %% Link Styling (Neon effects for data streams)
-    linkStyle 0,1,3,6,7 stroke:#58A6FF,stroke-width:2px,color:#C9D1D9;
-    linkStyle 2 stroke:#A56EFF,stroke-width:2px,stroke-dasharray: 5 5;
-    linkStyle 4 stroke:#3FB950,stroke-width:3px;
-    linkStyle 5 stroke:#FF7B72,stroke-width:3px;
+    Pass -- "5. Return Verdict" --> UI
+    Block -- "5. Return Verdict" --> UI
 ```
 
 ### ⚙️ Quick Start Guide (GitHub Codespaces)
