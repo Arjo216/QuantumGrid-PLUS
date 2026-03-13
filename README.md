@@ -90,4 +90,4 @@ streamlit run app.py
 
 * **High-Speed IPC:** Replaced standard REST JSON APIs with Google's Protocol Buffers (Protobuf) over HTTP/2, ensuring the AI inference step does not bottleneck the blockchain's TPS (Transactions Per Second).
 
-                                                  **Architected and Engineered for the Post-Quantum Era.**
+* **Architected and Engineered for the Post-Quantum Era.**
