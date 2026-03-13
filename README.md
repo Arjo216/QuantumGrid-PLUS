@@ -53,35 +53,38 @@ This project is fully dockerized and optimized for a cloud-native DevContainer e
 
 1. Boot the Quantum Oracle (Terminal 1)
 
-Bash
+```Bash
 cd quantum_oracle
 python3 oracle.py
+```
 # Runs on localhost:5000
 2. Boot the Deep Learning Brain (Terminal 2)
 
-Bash
+```Bash
 cd ai_sentinel
 python3 server.py
+```
 # Runs on gRPC port 50051
 3. Launch Mission Control (Terminal 3)
 
-Bash
+```Bash
 cd dashboard
 streamlit run app.py
+```
 # Opens interactive UI in browser (Port 8501)
 (Note: The Rust Core is executed dynamically by the Streamlit UI to demonstrate live transaction batches, data compression, and real-time AI inference).
 
 
-📊 Security & SWOT Highlights
-NIST-Aligned Sovereignty: Utilizes FIPS 204 (Dilithium3) standards, effectively mitigating "Harvest Now, Decrypt Later" attacks by Shor's Algorithm.
+### 📊 Security & SWOT Highlights
+** NIST-Aligned Sovereignty: Utilizes FIPS 204 (Dilithium3) standards, effectively mitigating "Harvest Now, Decrypt Later" attacks by Shor's Algorithm.
 
-Hybrid Entropy Resiliency: Does not rely solely on the Quantum QPU. It XOR-hashes Quantum bits with Classical OS bits, preventing single-point-of-failure API dependency.
+* Hybrid Entropy Resiliency: Does not rely solely on the Quantum QPU. It XOR-hashes Quantum bits with Classical OS bits, preventing single-point-of-failure API dependency.
 
-Fault-Tolerant AI Governance: The AI runs out-of-band via gRPC. If the AI service crashes, the Rust blockchain core remains online and defaults to strict security parameters.
+* Fault-Tolerant AI Governance: The AI runs out-of-band via gRPC. If the AI service crashes, the Rust blockchain core remains online and defaults to strict security parameters.
 
 
-📊 DeepTech Innovations & Metrics
-PQC Data Optimization: Successfully reduced 13,000+ byte transaction batches to a 32-byte verifiable state identifier (Merkle Root).
+### 📊 DeepTech Innovations & Metrics
+* PQC Data Optimization: Successfully reduced 13,000+ byte transaction batches to a 32-byte verifiable state identifier (Merkle Root).
 
 Deterministic ML Bypassed: Shifted from static rules to dynamic statistical reconstruction, allowing the node to detect unknown (zero-day) economic attacks based purely on mathematical deviation.
 
