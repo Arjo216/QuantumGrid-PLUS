@@ -112,7 +112,6 @@ cd quantum_oracle
 python3 oracle.py
 ```
 # Runs on localhost:5000
-
 2. Boot the Deep Learning Brain (Terminal 2)
 
 ```Bash
@@ -120,7 +119,6 @@ cd ai_sentinel
 python3 server.py
 ```
 # Runs on gRPC port 50051
-
 3. Launch Mission Control (Terminal 3)
 
 ```Bash
@@ -128,7 +126,6 @@ cd dashboard
 streamlit run app.py
 ```
 # Opens interactive UI in browser (Port 8501)
-
 (Note: The Rust Core is executed dynamically by the Streamlit UI to demonstrate live transaction batches, data compression, and real-time AI inference).
 
 
